@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    
+    /* Capa oscura translúcida combinada con una imagen de galaxia */
+    background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
+        url('imagenes/descarga (3).jpeg');
+
+
+        
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantiene la galaxia fija mientras bajas por la página */
+    background-repeat: no-repeat;
+
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Menú de Navegación */
+header {
+    background-color: #40826d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #1abc9c;
+}
+
+/* Secciones */
+section {
+    padding: 80px 20px 40px 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+h2 {
+    border-bottom: 2px solid #40826d;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Clases de Utilidad */
+.text-center {
+    text-align: center;
+}
+.text-muted {
+    color: #7f8c8d;
+}
+
+/* --- ESTILOS DE IMÁGENES --- */
+.img-responsive {
+    width: 100%;
+    height: 250px;       /* Controla la altura uniforme de ambas tarjetas */
+    object-fit: contain; /* Esto hace que la foto se encoja para salir COMPLETA sin recortarse */
+    background-color: #f0f2f5; /* Relleno sutil para los lados si la foto es vertical */
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 15px;
+}
+.profile-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+.profile-img {
+    flex: 1 1 250px;
+    max-width: 300px;
+    border-radius: 50%; /* Transforma la foto en un círculo */
+    border: 5px solid #e8f8f5;
+}
+.profile-text {
+    flex: 2 1 400px;
+}
+.project-img {
+    height: 180px; /* Asegura que todas las fotos de proyectos midan lo mismo */
+}
+
+/* Componentes y Estructuras */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.card {
+    background: #f4f6f7;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #1abc9c;
+    overflow: hidden;
+}
+.card-margin {
+    margin-bottom: 15px;
+}
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-left: 0;
+}
+.skills-list li {
+    background: #e8f8f5;
+    color: #16a085;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.contact-links a {
+    display: inline-block;
+    margin-right: 20px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+#inicio {
+    /* Tamaño y comportamiento básico del fondo */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    
+    /* Cambia las imágenes cada 15 segundos en total de forma infinita */
+    animation: cambiarFotosSecuencial 15s infinite;
+}
+
+/* Forzar que los textos se vean claros sobre el carrusel de fotos */
+#inicio h1 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+#inicio p {
+    color: #f0f0f0 !important;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Animación secuencial para alternar entre tus 3 imágenes */
+@keyframes cambiarFotosSecuencial {
+    /* 0% a 30%: Primera imagen */
+    0%, 30% {
+        background-image: url('imagenes/Screenshot_20230329-162129_TikTok.png');
+    }
+    /* 35% a 65%: Segunda imagen (WhatsApp 1) */
+    35%, 65% {
+        background-image: url('imagenes/image (4).png');
+    }
+    /* 70% a 95%: Tercera imagen (WhatsApp 2) */
+    70%, 95% {
+        background-image: url('imagenes/IMG-20220518-WA0015.jpg');
+    }
+    /* 100%: Regresa al inicio para reiniciar el ciclo de forma fluida */
+    100% {
+        background-image: url('imagenes/Screenshot_20221003-232007_Instagram.png');
+    }
+}
+
+/*otro*/
